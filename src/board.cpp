@@ -62,13 +62,13 @@ std::vector<Board> Board::get_successors() const {
         successors.push_back(successor);
     }
 
-    if (zero_col < 2) { // Moving right is possible
+    if (zero_col < cols - 1) { // Moving right is possible
         Board successor(*this);
         std::swap(successor.tiles[zero_index], successor.tiles[zero_index + 1]);
         successors.push_back(successor);
     }
 
-    if (zero_row < 2) { // Moving down is possible
+    if (zero_row < rows - 1) { // Moving down is possible
         Board successor(*this);
         std::swap(successor.tiles[zero_index], successor.tiles[zero_index + cols]);
         successors.push_back(successor);
